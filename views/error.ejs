@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/buttonstyle.css">
+
+</head>
+<body>
+
+    <form>
+
+        <div style="">
+            <div style="background-color:saddlebrown; color:white; padding:20px;align-self:center;border-style:solid;border-color:black;width:40%; margin:auto;padding:10Px">
+                <h2>Welcome</h2>
+            </div>
+
+            <div style="align-self:center;border-style:solid;border-color:black;width:40%; margin:auto;padding:10Px;height:400px">
+
+                <div>
+                    <%- message%>
+                </div>
+
+
+                <div>
+                    <%- status%>
+                </div>
+
+                <div>
+                    <%- error%>
+                </div>
+
+            </div>
+
+            <div style="text-align:center; background-color:saddlebrown; color:white; padding:20px;align-self:center;border-style:solid;border-color:black;width:40%; margin:auto;padding:10Px">
+                <input id="btnGoToHomepage" formmethod="get" formaction="/welcome" type="submit" value="Go to homepage">
+
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

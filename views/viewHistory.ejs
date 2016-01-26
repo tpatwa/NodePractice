@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+<link rel="stylesheet" type="text/css" href="CSS/buttonstyle.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   
+<script >
+
+$(document).ready(function(){
+var dt=  <%- data%>;
+
+//Dynamic row created
+dt.forEach(function(obj) { 
+
+var row = $("<tr />")
+
+$("#recieverDataTable").append(row);
+var row = $("<tr />")
+
+$("#recieverDataTable").append(row);
+
+row.append($("<td>" + obj.date + "</td>"));
+row.append($("<td>" + obj.email + "</td>"));
+row.append($("<td>" + obj.amount + "</td>"));
+row.append($("<td>" + obj.currency + "</td>"));
+});
+
+            
+});
+</script>
+
+</head>
+<body>
+
+    <form>
+        <div style="border-style:solid;border-color:black;width:40%;align-self:center;margin:auto;height:600px;">
+
+            <div style="background-color:saddlebrown; color:white; padding:20px;height:10%;text-align:center">
+
+                <h2>View Transaction History</h2>
+
+            </div>
+            <div style="height:60%;padding:20px;overflow:auto;">
+
+            
+                <table id="recieverDataTable">
+                    <tr>
+                        <th width="150px">Date</th>
+                        <th width="100px">Money sent to</th>
+                        <th width="100px">Amount</th>
+                        <th width="100px">Currency</th>
+                    </tr>
+
+                </table>
+
+
+            </div>
+            <div style="background-color:saddlebrown; color:white;height:10%;padding:20px">
+                
+                <div style="height:50%;text-align:center;">
+                    <input type="submit" id="btnViewTransactionHistory" value="Send More Money" formmethod="get" formaction="/sendMoney"  />
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="JS/validation.js"></script>
+<link rel="stylesheet" type="text/css" href="CSS/buttonstyle.css">
+</head>
+
+<body>
+    <form>
+        <div style="">
+            <div id="divValidationInputHiddenFields">
+                <input type="text" id="txtValidEmailFlag" style="visibility:hidden;" value="False" />
+                <input type="text" id="txtValidAmountFlag" style="visibility:hidden;" value="False" />
+                <input type="text" id="txtValidServiceFlag" style="visibility:hidden;" value="False" />
+                <input type="text" id="txtServiceVal" style="visibility:hidden;" name="servicecharge" value="ToFamily"/>
+                <input type="text" id="txtDate" name="date" style="visibility:hidden;" value="<%= new Date() %>" />
+            </div>
+
+            <div style="text-align:center; background-color:saddlebrown;color:white; padding:20px;align-self:center;border-style:solid;border-color:black;width:40%; margin:auto;padding:10Px">
+
+                <h2>Send Money</h2>
+
+            </div>
+
+            <div style="align-self:center;border-style:solid;border-width:thin;border-color:black;width:40%; margin:auto;padding:10Px;height:400px">
+
+                <div id="divInfo" style="align-self:center;text-align:center;color:forestgreen;">
+                    Fields marked with an asterik are mandatory.
+
+                </div>
+
+                <div style="align-self:center;border-style:solid;border-width:thin;border-color:black;width:60%; margin:auto;padding:10Px; border-radius: 25px">
+                    <div>
+                        * To :
+                        <input type="text" id="txtEmail" onblur="validateEmail();" name="email" />
+
+
+                        <input type="image" height="15" id="emailOkIco" width="15" style="visibility:hidden" />
+
+                    </div>
+
+                </div>
+
+                <div style="align-self:center;width:50%; margin:auto;padding:10Px">
+
+
+                </div>
+                <div style="align-self:center;border-style:solid;border-width:thin;border-color:black;width:60%; margin:auto;padding:10Px;border-radius: 25px">
+                    <div>
+                        * Amount :
+                        <label id="lblCurrencySymbol">$</label>
+                        <input type="text" id="txtAmount" onblur="ValidateAmonunt(this);" name="amount" />
+                        <input type="image" height="15" id="amountOkIco" width="15" style="visibility:hidden" />
+                        <select onchange="changeCurrency();" id="ddlCurrency" name="currency">
+                            <option value="USD" selected="selected">USD</option>
+                            <option value="INR">INR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="EUR">EUR</option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+                <div style="align-self:center;width:50%; margin:auto;padding:10Px">
+
+                </div>
+
+                <div style="align-self:center;border-style:solid;border-width:thin;border-color:black;width:60%; margin:auto;padding:10Px;border-radius: 25px">
+                    Message :
+                    <div>
+                        <textarea rows="5" style="width:350px" id="txtMessage"></textarea>
+
+                    </div>
+
+                </div>
+
+                <div style="align-self:center;width:50%; margin:auto;padding:10Px">
+
+                </div>
+
+                <div style="align-self:center;text-align:center">
+                  *  Whats this payment for?
+
+                </div>
+                <div style="align-self:center;width:50%; margin:auto;padding:10Px">
+
+                </div>
+           
+                <div>
+
+                    <table style="border-style:solid;border-width:thin;align-self:center;border-style:solid;border-color:black;width:60%; margin:auto;padding:10Px;border-radius: 25px;">
+
+                        <tr>
+                            <td><label onmouseover="ChangeCursor(this);" onclick="ChangeColorOfFamilyText(this);" id="lblToFamily">I am sending money to my family or Friend</label></td>
+
+                            <td><input type="image" height="15" width="15" style="visibility:hidden" id="icoSendToFamily" src="ok.ico" /></td>
+
+                        </tr>
+
+                        <tr>
+                            <td><label onmouseover="ChangeCursor(this);" onclick="ChangeColorOfServiceText(this);" id="lblToServices">I am sending money to goods and service</label></td>
+                            <td><input type="image" height="15" width="15" style="visibility:hidden;" id="icoSendToServices" src="ok.ico" /></td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+               
+            </div>
+         
+            <div style="text-align:center; background-color:saddlebrown; color:white; padding:20px;align-self:center;border-style:solid;border-color:black;width:40%; margin:auto;padding:10Px">
+
+            <input id="btnView" formmethod="get" formaction="/viewHistory" type="submit" value="View Transaction History" >
+
+            <input type="submit" value="Clear" id="btnClear" onclick="ClearFormContent();" />
+          <input type="submit" value="Next" id="btnNext" disabled="disabled" formaction="/success" formmethod="POST"/>
+  
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
